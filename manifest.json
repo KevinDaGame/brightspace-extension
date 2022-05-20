@@ -1,0 +1,24 @@
+{
+    "name": "Brightspace-extension",
+    "version": "0.1",
+    "description": "Keyboard shortcuts for brightspace",
+    "manifest_version": 2,
+    "permissions": ["*://brightspace.avans.nl/*"],
+    "commands": {
+        "quick-search": {
+            "suggested_key": "Ctrl+Shift+K",
+            "description": "Open search prompt"
+        }
+
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [{
+        "run_at": "document_idle",
+        "matches": ["*://brightspace.avans.nl/*"],
+        "js": ["quickSearch.js"]
+    }]
+
+}
